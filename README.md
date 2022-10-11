@@ -1,12 +1,12 @@
-# Verify-ReCaptcha
+# Verify-ReCAPTCHA
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ZyriabDsgn/verify-recaptcha)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ZyriabDsgn/verify-recaptcha)
 ![GitHub top language](https://img.shields.io/github/languages/top/ZyriabDsgn/verify-recaptcha)
 ![GitHub](https://img.shields.io/github/license/ZyriabDsgn/verify-recaptcha)
 
-![Verify-ReCaptcha](images/Verify-ReCaptcha.png)
+![Verify-ReCAPTCHA](images/Verify-ReCAPTCHA.png)
 
-Verify-ReCaptcha is a simple serveless microservice API to check for bots on your website or apps using Google's ReCaptcha v3
+Verify-ReCAPTCHA is a simple serveless microservice API to check for bots on your website or apps using Google's ReCAPTCHA v3
 
 ## Installation
 
@@ -19,12 +19,12 @@ First you need to clone this repo, then you can follow along the instructions be
 
 ### Google
 
-These are the necessary steps to get your own ReCaptcha credentials for your apps.
+These are the necessary steps to get your own ReCAPTCHA credentials for your apps.
 
 **The API currently only allows the use of one secret, so you'll have to put all of your apps/website in the same registration, or you can host a different API for every website.**
 
-1. Go to [Google's ReCaptcha admin](https://www.google.com/u/0/recaptcha/admin/) and connect with your account.
-2. Register a new website (choose ReCaptcha v3) - Don't forget to add `localhost` to the authorized domains if you plan on testing with a frontend on localhost.
+1. Go to [Google's ReCAPTCHA admin](https://www.google.com/u/0/recaptcha/admin/) and connect with your account.
+2. Register a new website (choose ReCAPTCHA v3) - Don't forget to add `localhost` to the authorized domains if you plan on testing with a frontend on localhost.
 3. Copy the site and secret keys (site key is for your frontend, secret for the verification on the backend).
 
 **Do not share your secret key and do not save it on GitHub or any other public file!**
@@ -51,7 +51,7 @@ These are the steps to set up a lambda function in order to host the API.
     - Click "Edit" then "Add environment variable"
     - Add the following:
       - Key: `SECRET_KEY`
-      - Value: Your ReCaptcha secret key from earlier.
+      - Value: Your ReCAPTCHA secret key from earlier.
 
         **Keep this absolutely secret, don't share it anywhere and only put it on your backend, as an environment variable**
 6. Don't forget to note the function URL, we'll use it to call the API from the frontend.
@@ -86,7 +86,7 @@ Here is an example of API call in React using the given hook from the link above
         return;
       }
 
-      // Silently executes the ReCaptcha check and returns a token
+      // Silently executes the ReCAPTCHA check and returns a token
       return await executeRecaptcha();
     }
 
@@ -109,7 +109,7 @@ Here is an example of API call in React using the given hook from the link above
           return false;
         }
   
-        // At this point, the ReCaptcha has been validated and you can assume the user is not a bot 🥳
+        // At this point, the ReCAPTCHA has been validated and you can assume the user is not a bot 🥳
         return true;
       } catch(e) {
         // Handle error

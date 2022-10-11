@@ -30,12 +30,13 @@ These are the necessary steps to get your own ReCAPTCHA credentials for your app
 **Do not share your secret key and do not save it on GitHub or any other public file!**
 
 ### AWS
-These are the steps to set up a lambda function in order to host the API.
+These are the steps to set up a Lambda function in order to host the API.
 
 1. Go to the AWS console and log in.
 2. Go to the Lambda functions console and create a new function.
 3. Set the following settings:
-    - Function name: `verify-recaptcha` (you can call it whatever you want, really but the workflows are set up for this name, if you decide to go this route).
+    - Allow origin: You can add your domains (one per line) or keep the wildcard character (*) in order to allow all origins (not recommended)
+    - Function name: `verify-recaptcha` (you can call it whatever you want, but the workflows are set up for this name, if you decide to go this route).
     - Runtime: Node.js
     - Architecture: x86_64
     - Advanced settings:
@@ -72,7 +73,7 @@ These are the steps to automatically bundle the API's code in one big JS file an
 Depending on your frontend framework this part can vary so it's up to you to look how to do it.
 If you are using React you can use the [react-google-recaptcha-v3](https://www.npmjs.com/package/react-google-recaptcha-v3) package.
 
-If you want to test the API locally you can run `npm run dev` in the API's directory and check the debug console for any error, don't forget to create a `.env` file and add the following line:
+If you want to test the API locally you can run `npm run dev` in the API's directory and check the debug console for any error, don't forget to create a `.env` file and add the following lines:
   - `NODE_ENV=development`
   - `PORT=3000` <-- Feel free to change this value if this port is already in use.
 
@@ -93,6 +94,12 @@ Here is an example of API call in React using the given hook from the link above
     async function verifyRecaptcha() {
       try {
         const token = await getRecaptchaToken();
+
+          // if getRecaptchaToken() returns 'undefined'
+        if(token == null) {
+          // Do some frontend stuff in order to tell the user something went wrong, retry to get the token, ...
+          return;
+        }
 
         // Sending the token to our API
         const res = await fetch('YOUR_LAMBDA_URL_OR_LOCALHOST:PORT', {

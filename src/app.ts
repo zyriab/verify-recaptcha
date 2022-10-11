@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import verifyToken from './utils/verifyToken.utils';
-import { RequestBody, ResponseBody } from './definitions/custom';
+import { RequestBody } from './definitions/custom';
 import 'dotenv/config';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -14,7 +14,7 @@ if (!IS_DEV) app.use(helmet());
 app.use(bodyParser.json());
 
 // eslint-disable-next-line consistent-return
-app.use((req: RequestBody, res: ResponseBody<any>, next: any) => {
+app.use((req: RequestBody, res, next: any) => {
   // CORS is taken care of in AWS Lambda
   if (IS_DEV) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,7 +30,7 @@ app.use((req: RequestBody, res: ResponseBody<any>, next: any) => {
 
 app.use('/', router);
 
-router.post('/', async (req, res) => {
+router.post('/', async (req: RequestBody, res) => {
   const success = await verifyToken(req.body.token);
 
   if (success) {

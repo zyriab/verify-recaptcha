@@ -57,14 +57,15 @@ These are the steps to set up a Lambda function in order to host the API.
 
 ### API directory
 
-These are the steps to automatically bundle the API's code in one big JS file and deploy it manually on Lambda. You can automate the deployment when you push your code on your GitHub repo, by using the included action `deploy.yml` but that's outside the scope of this readme, feel free to do some research about it (most of the work is already done).
+These are the steps to automatically bundle the API's code in one big JS file and deploy it manually on Lambda. You can also use AWS CLI or automate the deployment when you push your code on your GitHub repo, by using the included action `deploy.yml` but that's outside the scope of this readme, feel free to do some research about it (most of the work is already done).
 
-1. In your terminal, go the cloned directory.
+1. In your terminal, go the project's directory.
 2. Run the command `npm i` in order to install all the project's dependencies.
 3. Run `npm run build`.
-4. Open the file `index.js` in the newly created `dist/` directory and copy its content.
-4. Go back to the AWS Lambda function dashboard and in the "Code" tab, simply select all (CTRL+A/CMD+A) and paste the content of the newly created `index.js` into the editor.
-5. Click "Deploy".
+4. Move the file `index.js` from the newly created `dist/` folder to the root folder of the project.
+5. Select the files `index.js`, `package.json`, `package-lock.json` and the directory `node_modules/` and compress them into a .zip file.
+6. Go back to the AWS Lambda function dashboard.
+7. In the "Code" tab (top-right of the editor), select "Upload from > .zip file" and upload the .zip file.
 
 ## Usage
 

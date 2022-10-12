@@ -46,7 +46,6 @@ These are the steps to set up a Lambda function in order to host the API.
     - Function URL: click "Edit" on the top-right.
       - Under "Allow headers", click "Add new value" and type in `content-type`.
       - Under "Allow methods", check "POST".
-      - Set "Allow credentials" to "Off".
 5. In the "Environment variables" menu section (on the left):
     - Click "Edit" then "Add environment variable"
     - Add the following:

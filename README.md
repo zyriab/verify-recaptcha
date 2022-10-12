@@ -1,13 +1,12 @@
-# Verify-ReCAPTCHA
-![GitHub package.json version](https://img.shields.io/github/package-json/v/ZyriabDsgn/verify-recaptcha)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ZyriabDsgn/verify-recaptcha)
-![GitHub top language](https://img.shields.io/github/languages/top/ZyriabDsgn/verify-recaptcha)
-![GitHub](https://img.shields.io/github/license/ZyriabDsgn/verify-recaptcha)
-
 ![Verify-ReCAPTCHA](images/Verify-ReCaptcha.png)
 
-Verify-ReCAPTCHA is a simple serveless microservice API to check for bots on your website or apps using Google's ReCAPTCHA v3
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ZyriabDsgn/verify-recaptcha)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ZyriabDsgn/verify-recaptcha)
+![GitHub](https://img.shields.io/github/license/ZyriabDsgn/verify-recaptcha)
+<br/><br/>
+Verify-ReCAPTCHA is a simple serveless microservice API to check for bots on your website or apps by checking the token given by Google's ReCAPTCHA v3.
+<br /><br/>
 ## Installation
 
 *This guide assume you have basic knowledge about NPM (also that it's installed) and possess AWS and Google accounts.*

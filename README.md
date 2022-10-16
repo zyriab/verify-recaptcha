@@ -63,7 +63,7 @@ These are the steps to automatically bundle the API's code in one big JS file an
 2. Run the command `npm i` in order to install all the project's dependencies.
 3. Run `npm run build`.
 4. Move the file `index.js` from the newly created `dist/` folder to the root folder of the project.
-5. Select the files `index.js`, `package.json`, `package-lock.json` and the directory `node_modules/` and compress them into a .zip file.
+5. Select the file `index.js` and compress it into a .zip file.
 6. Go back to the AWS Lambda function dashboard.
 7. In the "Code" tab (top-right of the editor), select "Upload from > .zip file" and upload the .zip file.
 

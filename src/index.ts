@@ -6,5 +6,11 @@ require('source-map-support').install();
 
 const server = awsServerlessExpress.createServer(app);
 
-exports.handler = (event: any, context: any): any =>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+let reqMethod = '';
+
+exports.handler = (event: any, context: any): any => {
+  reqMethod = event.requestContent.http.method;
+
   awsServerlessExpress.proxy(server, event, context);
+};

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import verifyToken from './utils/verifyToken.utils';
 import { RequestBody } from './definitions/custom';
+import setOriginalReqMethod from './middlewares/setOriginalReqMethod';
 import 'dotenv/config';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -18,7 +19,7 @@ app.use((req: RequestBody, res, next: any) => {
   // CORS is taken care of in AWS Lambda
   if (IS_DEV) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   }
 
@@ -27,6 +28,8 @@ app.use((req: RequestBody, res, next: any) => {
   }
   next();
 });
+
+app.use(setOriginalReqMethod); // FIXME: hotfix
 
 app.use('/', router);
 

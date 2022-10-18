@@ -38,6 +38,7 @@ router.post('/', async (req: RequestBody, res) => {
 
   if (success) {
     res.status(200);
+    res.json({ message: 'Token verified!' });
     return;
   }
 

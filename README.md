@@ -34,7 +34,6 @@ These are the steps to set up a Lambda function in order to host the API.
 1. Go to the AWS console and log in.
 2. Go to the Lambda functions console and create a new function.
 3. Set the following settings:
-    - Allow origin: You can add your domains (one per line) or keep the wildcard character (*) in order to allow all origins (not recommended)
     - Function name: `verify-recaptcha` (you can call it whatever you want, but the workflows are set up for this name, if you decide to go this route).
     - Runtime: Node.js
     - Architecture: x86_64
@@ -44,6 +43,7 @@ These are the steps to set up a Lambda function in order to host the API.
       - Check "Configure cross-origin resource sharing (CORS)"
 4. In the tab "Configuration":
     - Function URL: click "Edit" on the top-right.
+      - Allow origin: You can add your domains (one per line) or keep the wildcard character (*) in order to allow all origins (not recommended) 
       - Under "Allow headers", click "Add new value" and type in `content-type`.
       - Under "Allow methods", check "POST".
 5. In the "Environment variables" menu section (on the left):

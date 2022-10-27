@@ -9,7 +9,7 @@ Verify-ReCAPTCHA is a simple serveless microservice API to check for bots on you
 <br /><br/>
 ## Installation
 
-*This guide assume you have basic knowledge about NPM (also that it's installed) and possess AWS and Google accounts.*
+*This guide assumes you have basic knowledge about NPM (also that it's installed) and possess AWS and Google accounts.*
 
 Automatic CI/CD using GH Actions is not covered in this readme.
 <br/><br/>
